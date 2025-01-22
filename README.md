@@ -47,3 +47,18 @@ A RESTful API for a Content Management System built with Django REST Framework.
 *   All endpoints require token for authorization.
 *   Admin endpoints are available to admin users only.
 *   Coverage files are included in the `coverage` folder.
+
+*   ## Code Coverage
+
+To generate the coverage reports, you need to follow these steps:
+
+1.  Run your tests with coverage tracking:
+    ```bash
+    coverage run manage.py test
+    ```
+
+2.  Generate the HTML report:
+
+    ```bash
+    coverage html
+    ```
