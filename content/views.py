@@ -5,12 +5,12 @@ from .models import Content
 from .serializers import ContentSerializer, AdminContentSerializer
 
 class AuthorContentListCreateView(generics.ListCreateAPIView):
-    serializer_class = ContentSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    def get_queryset(self):
-         return Content.objects.filter(author=self.request.user)
-    def perform_create(self, serializer):
-         serializer.save(author=self.request.user)
+     serializer_class = ContentSerializer
+     permission_classes = [permissions.IsAuthenticated]
+     def get_queryset(self):
+        return Content.objects.filter(author=self.request.user)
+     def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 class AuthorContentRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ContentSerializer
@@ -24,9 +24,9 @@ class AuthorContentRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVie
        return Response({"message": "Content deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
 
 class AdminContentListCreateView(generics.ListCreateAPIView):
-    serializer_class = AdminContentSerializer
-    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
-    queryset = Content.objects.all()
+      serializer_class = AdminContentSerializer
+      permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+      queryset = Content.objects.all()
     
 
 class AdminContentRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
